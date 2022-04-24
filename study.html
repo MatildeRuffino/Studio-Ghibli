@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="to do list.css">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study</title>
+    <link rel="icon" type="image/x-icon" href="immagini-gif/logo.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-attachment: fixed;
+            /*  background-size: 100% 100%;  */
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+        }
+        
+        .videofullscreen {
+            position: absolute;
+            overflow: hidden;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            z-index: -100;
+            margin: 0px;
+        }
+        /* misure del rettangolo */
+        
+        .column {
+            float: left;
+            width: 500px;
+            padding: 10px;
+            height: 600px;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .right {
+            text-align: right;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <video muted autoplay loop class="videofullscreen">
+        <source src="immagini-gif/Relax with my cat.mp4" type="video/mp4">
+      </video>
+
+    <div class="row">
+        <div class="column">
+
+
+            <div id="myDIV" class="header">
+                <h2 style="margin:5px">MY TO DO LIST</h2>
+                <input type="text" id="myInput" placeholder="Title...">
+                <span onclick="newElement()" class="addBtn">Add</span>
+            </div>
+
+            <ul id="myUL">
+                <li>finish the draw</li>
+                <li class="checked">Love my selfh</li>
+                <li>Finish the homework</li>
+                <li>Repeat Filosophy</li>
+                <li>Read a book</li>
+                <li>Study English</li>
+            </ul>
+
+            <br><br>
+            <audio controls>
+                <source src="immagini-gif/Calm Steven Universe Songs To Love & Cry To __ Ocean Ambience (128 kbps).ogg" type="audio/ogg">
+                <source src="immagini-gif/Calm Steven Universe Songs To Love & Cry To __ Ocean Ambience (128 kbps).mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+
+        </div>
+
+        <div class="right"><img src="immagini-gif/home.png" alt="home" usemap="#home" width="150">
+
+            <map name="home">
+      <area shape="rect" coords="10,0,270,370" alt="home" href="index.html" >
+    </map> </div>
+    </div>
+
+
+
+    <script>
+        // crea un bottone di chiusura che si crei per ogni riga della lista  C
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
+
+        // al click si cancella la riga schiacciando sul bottone di chiusura 
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+
+        // quando schiaccio sopra la riga si evidenza
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+            if (ev.target.tagName === 'LI') {
+                ev.target.classList.toggle('checked');
+            }
+        }, false);
+
+        // crea una nuova riga quando schiaccio sul tasto add
+        function newElement() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("myInput").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("myUL").appendChild(li);
+            }
+            document.getElementById("myInput").value = "";
+
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

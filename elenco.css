@@ -1,0 +1,68 @@
+ /*  ELENCO  */
+ 
+ * {
+     box-sizing: border-box;
+ }
+ 
+ .main {
+     max-width: 70%;
+     margin: auto;
+ }
+ 
+ h1 {
+     font-size: 50px;
+     word-break: break-all;
+ }
+ 
+ .row {
+     margin: 10px -16px;
+ }
+ /* spazio tra le colonne */
+ 
+ .row,
+ .row>.column {
+     padding: 8px;
+ }
+ /* crea tre colonne uguli vicine */
+ 
+ .column {
+     float: left;
+     width: 33.33%;
+     display: none;
+     /* nasconde gli elementi di default */
+ }
+ 
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+ 
+ .content {
+     background-color: white;
+     padding: 10px;
+ }
+ /* la classe "show" serve per filtrare gli elementi */
+ 
+ .show {
+     display: block;
+ }
+ /* bottoni*/
+ 
+ .btn {
+     border: none;
+     outline: none;
+     padding: 12px 16px;
+     background-color: white;
+     cursor: pointer;
+ }
+ 
+ .btn:hover {
+     background-color: #ddd;
+ }
+ /* qunado schiaccio sul tasto*/
+ 
+ .btn.active {
+     background-color: #666;
+     color: white;
+ }

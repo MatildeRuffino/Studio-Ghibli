@@ -1,0 +1,36 @@
+/*file style.css*/
+.cl-primary
+{
+    background-color: DodgerBlue ;
+}
+.centered
+{
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1.loader-text
+{
+    text-align:center;
+}
+div.first-circle
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white ;
+    text-align: center;
+    margin-left: -250px;
+    box-shadow: 0px 0px 20px rgb(80.80,80);
+
+}
+
+@keyframes spin{
+    from{transform: rotateZ(0);}
+    to{transform: rotateZ(360deg);}
+}
+.rotator
+{
+    animation: spin .9s infinite;
+}
